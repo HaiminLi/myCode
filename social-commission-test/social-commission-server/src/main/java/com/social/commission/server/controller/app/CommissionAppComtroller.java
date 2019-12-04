@@ -1,5 +1,6 @@
 package com.social.commission.server.controller.app;
 
+import com.haimin.code.enums.ToBeDB;
 import com.social.commission.api.vo.prt.MyCommission;
 import com.social.common.model.BaseResultResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -71,7 +72,7 @@ public class CommissionAppComtroller {
                 final int intTemp = i;
                 new Thread(() -> {
                     myCache2.read(intTemp);
-                }, String.valueOf(i)).start();
+                }, ToBeDB.getNameByAge(i)).start();
             }
         });
         for (int i = 1; i <= 5; i++) {
@@ -86,7 +87,7 @@ public class CommissionAppComtroller {
                     e.printStackTrace();
                 }
                 //countDownLatch.countDown();
-            }, String.valueOf(i)).start();
+            }, ToBeDB.getNameByAge(i)).start();
         }
         //countDownLatch.await(3, TimeUnit.SECONDS);
 
