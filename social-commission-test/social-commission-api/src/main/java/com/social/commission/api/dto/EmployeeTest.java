@@ -18,16 +18,16 @@ import java.util.stream.Collectors;
 public class EmployeeTest {
 
     public static List<Employee> generateData() {
-        return Arrays.asList(new Employee("Matt", 5000, "New York"),
-                new Employee("Steve", 6000, "London"),
-                new Employee("Carrie", 10000, "New York"),
-                new Employee("Peter", 7000, "New York"),
-                new Employee("Alec", 6000, "London"),
-                new Employee("Sarah", 8000, "London"),
-                new Employee("Rebecca", 4000, "New York"),
-                new Employee("Pat", 20000, "New York"),
-                new Employee("Tammy", 9000, "New York"),
-                new Employee("Fred", 15000, "Tokyo"));
+        return Arrays.asList(new Employee("Matt", 5000, "New York",15),
+                new Employee("Steve", 6000, "London",15),
+                new Employee("Carrie", 10000, "New York",15),
+                new Employee("Peter", 7000, "New York",15),
+                new Employee("Alec", 6000, "London",15),
+                new Employee("Sarah", 8000, "London",15),
+                new Employee("Rebecca", 4000, "New York",15),
+                new Employee("Pat", 20000, "New York",15),
+                new Employee("Tammy", 9000, "New York",15),
+                new Employee("Fred", 15000, "Tokyo",15));
     }
 
     public static Map<String, Integer> generateMapData() {
