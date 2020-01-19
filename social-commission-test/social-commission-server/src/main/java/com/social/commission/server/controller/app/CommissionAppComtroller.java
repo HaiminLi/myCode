@@ -4,7 +4,7 @@ import com.haimin.code.enums.ToBeDB;
 import com.social.commission.api.vo.prt.MyCommission;
 import com.social.common.model.BaseResultResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
@@ -101,7 +101,7 @@ public class CommissionAppComtroller {
 
 
 
-    @Test
+//    @Test
     public void updateStatus(){
 
 
