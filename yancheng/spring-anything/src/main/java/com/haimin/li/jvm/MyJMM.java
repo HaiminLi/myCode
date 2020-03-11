@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
@@ -28,6 +35,14 @@ public class MyJMM {
                 list2.add(UUID.randomUUID().toString().substring(0,8));
                 System.out.println(Thread.currentThread().getName() + "  大小  > "+ list2.size());
             }, String.valueOf(i)).start();
+        }
+
+
+        ExecutorService threadPool = Executors.newFixedThreadPool(5);
+        try {
+            threadPool.execute(() -> System.out.println("1231"));
+        }catch (Exception e){
+
         }
 
     }
@@ -79,8 +94,9 @@ public class MyJMM {
      *
      */
     /**
-     * 5.
+     * 5. 队列
+     * ArrayBlockingQueue
+     * LinkedBlockingQueue
      *
      */
 }
-q

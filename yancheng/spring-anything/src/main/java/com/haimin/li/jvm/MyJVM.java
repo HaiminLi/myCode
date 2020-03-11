@@ -153,13 +153,13 @@ public class MyJVM {
      *              1）Boolean类型
      *                  1） 公式 -XX：+（-） 属性  ： +开启 -关闭
      *                  2） -XX：+PrintGCDetails  是否打印GC 收集细节
-     *                  3） -XX:+UseSerialDC   是否使用串行垃圾回收器
+     *                  3） -XX:+UseSerialGC   是否使用串行垃圾回收器
      *              2）kv设值类型
-     *              1） 公式 -XX：属性key=属性值value
-     *              2） 设置元空间大小： -XX：MetaspaceSize=128M
-     *              3） 数值多大岁数今日old区: -XX：MaxTenuringThreshold=15
-     *              4) 堆内存初始值: -Xms1024m   等价于 -XX:InitialHeapSize=1024m
-     *              5) 堆内存最大值: -Xmx1024m   等价于 -XX:MaxHeapSize=1024m
+     *                  1） 公式 -XX：属性key=属性值value
+     *                  2） 设置元空间大小： -XX：MetaspaceSize=128M
+     *                  3） 数值多大岁数今日old区: -XX：MaxTenuringThreshold=15
+     *                  4) 堆内存初始值: -Xms1024m   等价于 -XX:InitialHeapSize=1024m
+     *                  5) 堆内存最大值: -Xmx1024m   等价于 -XX:MaxHeapSize=1024m
      *       3)盘点家底查看JVM默认值
      *            1）-XX:+PrintFlagsInitial  查看JVM初始默认值
      *            2）-XX:+PrintFlagsFinal   查看JVM修改之后的默认值  有：=的是有更改的参数
@@ -312,8 +312,8 @@ public class MyJVM {
      */
     /**
      * 9. 服务变慢，诊断
-     *      1） 整机 ：top -> 1）可以看程序的负载； 2） load average  或者 uptime； 3）按1
-     *      2） CPU ：vmstat -> vmstat -n 2 3   每2秒采集一次，采集3次
+     *      1） 整机 ：top -> 1）可以看程序的负载； 2） load average  或者 uptime； 3）按1   https://www.cnblogs.com/niuben/p/12017242.html
+     *      2） CPU ：vmstat -> vmstat -n 2 3   每2秒采集一次，采集3次   https://www.cnblogs.com/ftl1012/p/vmstat.html
      *                  r： 运行和等待CPU时间片的进程数，原则上不要超过总核数的2倍，否则压力大
      *                  b： 阻塞的进程数，比如等待磁盘IO，网络IO
      *                  cpu->us：用户进程消耗CPU时间的百分比，长期大约50%，应该优化
@@ -326,7 +326,13 @@ public class MyJVM {
      *                  pidstat -d 采样间隔 -p 进程编号（PID）
      *      6） 网络IO ：ifstat ->
      *      7）
-     *
+     *  pidstat 参数
+     * -u 默认的参数，显示各个进程的CPU使用统计
+     * -r 显示各个进程的内存使用统计
+     * -d 显示各个进程的IO使用情况
+     * -p 指定进程号
+     * -w 显示每个进程的上下文切换情况
+     * -t 显示选择任务的线程的统计信息外的额外信息
      *
      *
      */
